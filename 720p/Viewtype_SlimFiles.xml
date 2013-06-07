@@ -3,8 +3,8 @@
   <include name="Viewtype_SlimFiles">
     <control type="image">
       <include>Dimensions_Fullscreen</include>
-      <texture>music/black_bg.png</texture>
-      <visible>Control.IsVisible(598) + Container.Content(movies) + !Skin.HasSetting(Files_Fanart)</visible>
+      <texture>test10.png</texture>
+      <visible>Control.IsVisible(598) + !Window.IsActive(musiclibrary) + !Skin.HasSetting(Files_Fanart)</visible>
     </control>
     <control type="image">
       <posx>0</posx>
@@ -17,11 +17,11 @@
       <include>Animation_Viewtype_Files_LeftArea</include>
       <visible>Control.IsVisible(598) + Window.IsActive(musiclibrary) + !Skin.HasSetting(music_files_fanart)</visible>
     </control>
-    <control type="image">
+    <!--control type="image">
       <include>Dimensions_Fullscreen</include>
       <texture>list/file-black-background1.png</texture>
       <visible>Control.IsVisible(598) + ![Container.Content(movies) | Window.IsActive(musiclibrary)]</visible>
-    </control>
+    </control-->
     <control type="image">
       <include>Dimensions_Fullscreen</include>
       <texture>list/files_fanart_background.png</texture>
@@ -43,8 +43,8 @@
       <posy>520</posy>
       <height>185</height>
       <width>480</width>
-      <onup>50</onup>
-      <ondown>50</ondown>
+      <onup>598</onup>
+      <ondown>598</ondown> <!--was 50. but like that we cound not jump vom start to end or vice versa-->
       <onleft>7000</onleft>
       <onright>60</onright>
       <scrolltime>0</scrolltime>
@@ -174,7 +174,7 @@
           <height>46</height>
           <aligny>center</aligny>
           <font>Font_Bartowski_Episode_ContextMenu</font>
-          <textcolor>ffffffff</textcolor>
+          <textcolor>FFFF6000</textcolor><!--Changes the text color of the selected item-->
           <label>$INFO[ListItem.Label]</label>
           <!--	<animation effect="slide" start="0,0" end="30,0" time="0" condition="[Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)] + stringcompare(ListItem.Overlay,OverlayWatched.png) + [Skin.HasSetting(movieoverlays) | Skin.HasSetting(tvoverlays)]">Conditional</animation> -->
           <visible>[!Window.IsActive(Programs) | Window.IsActive(musicplaylist)]</visible>
@@ -347,7 +347,7 @@
       <include>Animation_HiddenByInfo</include>
       <include>Animation_Viewtype_Wall_Fags</include>
     </control>
-    <control type="label">
+    <!--control type="label">
       <posx>864</posx>
       <posy>670</posy>
       <width>380</width>
@@ -359,9 +359,9 @@
       <label>Movie Series</label>
       <visible>Control.IsVisible(598) + IsEmpty(ListItem.foldername) + !substring(Container.Listitem.Label,..,left) + Container.Content(movies) + Window.IsActive(videolibrary)</visible>
     </control>
-    <control type="textbox">
+    <control type="textbox"-->
       <!-- Plot and TV -->
-      <include>Animation_HiddenByInfo</include>
+      <!--include>Animation_HiddenByInfo</include>
       <posx>460</posx>
       <posy>545</posy>
       <width>610</width>
@@ -491,10 +491,10 @@
       <visible>Control.IsVisible(598) + !IsEmpty(ListItem.Title) + [Container.Content(tvshows) | Container.Content(seasons)]</visible>
       <include>Animation_Viewtype_Files_RightArea</include>
       <control type="image">
-        <posx>770</posx>
-        <posy>190</posy>
-        <width>500</width>
-        <height>530</height>
+        <posx>1000</posx> <!--Change the position and size of the season picture-->
+        <posy>390</posy>
+        <width>250</width>
+        <height>300</height>
         <aspectratio align="right" aligny="bottom">keep</aspectratio>
         <texture background="true">$INFO[ListItem.Icon]</texture>
         <bordertexture border="5">button-nofocus.png</bordertexture>
@@ -828,7 +828,7 @@
       <include>Animation_Viewtype_Wall_UnderInfo</include>
       <include>Animation_HiddenByInfo</include>
       <animation effect="slide" start="0,0" end="0,-40" time="0" condition="IsEmpty(Control.GetLabel(7019))">Conditional</animation>
-      <control type="label">
+      <!--control type="label">
         <visible>Container.Content(seasons)</visible>
         <posx>0</posx>
         <posy>40</posy>
@@ -838,7 +838,7 @@
         <font>Font_Neon_26</font>
         <textcolor>white</textcolor>
         <label>$INFO[ListItem.label]</label>
-      </control>
+      </control-->
       <!-- Remove Genre 
 		<control type="label">
 				<visible>Container.Content(tvshows)</visible>
@@ -850,7 +850,7 @@
 				<font>Font_TVShow</font>
 				<label>[COLOR=ListTrackF]$LOCALIZE[515][/COLOR] [COLOR=white]$INFO[ListItem.Genre][/COLOR]</label>
 			</control> -->
-      <control type="label">
+      <!--control type="label">
         <visible>Container.Content(tvshows)</visible>
         <posx>0</posx>
         <posy>30</posy>
@@ -869,7 +869,7 @@
         <align>center</align>
         <font>Font_TVShow</font>
         <label>[COLOR=ListTrackF]$LOCALIZE[368][/COLOR] [COLOR=white]$INFO[ListItem.Rating][/COLOR]      [COLOR=ListTrackF]$LOCALIZE[31226][/COLOR] [COLOR=white]$INFO[ListItem.mpaa][/COLOR]</label>
-      </control>
+      </control-->
     </control>
     <control type="group">
       <posx>60</posx>
@@ -877,7 +877,7 @@
       <include>Animation_HiddenByInfo</include>
       <include>Animation_Viewtype_Files_RightArea</include>
       <visible>Control.IsVisible(598) + !IsEmpty(ListItem.Title)</visible>
-      <control type="label">
+      <!--control type="label">
         <visible>Container.Content(episodes)</visible>
         <posx>830</posx>
         <posy>120</posy>
@@ -905,9 +905,9 @@
         <font>Font_TVShow</font>
         <label>[COLOR=ListTrackF]$LOCALIZE[368][/COLOR] [COLOR=white]$INFO[ListItem.Rating][/COLOR]      [COLOR=ListTrackF]$LOCALIZE[31226][/COLOR] [COLOR=white]$INFO[ListItem.mpaa][/COLOR]</label>
       </control>
-      <control type="textbox">
+      <control type="textbox"-->
         <!-- Plot TV -->
-        <visible>Container.Content(episodes)</visible>
+        <!--visible>Container.Content(episodes)</visible>
         <posx>785</posx>
         <posy>220</posy>
         <width>400</width>
@@ -918,7 +918,7 @@
         <textcolor>ffffffff</textcolor>
         <autoscroll time="3000" delay="5000" repeat="5000">Skin.HasSetting(autoscroll)</autoscroll>
         <animation effect="slide" start="0,0" end=",-80" time="0" tween="cubic" easing="inout" condition="Container.Content(tvshows)">Conditional</animation>
-      </control>
+      </control-->
     </control>
     <control type="grouplist">
       <visible>Container.Content(episodes) + Control.IsVisible(598) + !Skin.HasSetting(no_media_flags)</visible>
