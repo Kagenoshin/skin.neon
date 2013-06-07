@@ -513,10 +513,10 @@
 			<fadetime>100</fadetime>
 		</control>-->
       <control type="image">
-        <posx>770</posx>
-        <posy>190</posy>
-        <width>500</width>
-        <height>530</height>
+        <posx>1000</posx>
+        <posy>390</posy>
+        <width>250</width>
+        <height>300</height>
         <aspectratio align="right" aligny="bottom">keep</aspectratio>
         <texture background="true">$INFO[ListItem(-1).Icon]</texture>
         <bordertexture border="5">button-nofocus.png</bordertexture>
